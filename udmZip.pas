@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, KAZip;
+  Dialogs, StdCtrls, KAZip, ZipForge;
 
 type
   TForm1 = class(TForm)
@@ -16,10 +16,14 @@ type
     SaveDialog1: TSaveDialog;
     Button3: TButton;
     OpenDialog2: TOpenDialog;
+    Label1: TLabel;
+    Button4: TButton;
+    SaveDialog2: TSaveDialog;
     procedure Button2Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
   private
     function RemoveAcentos(Str: String): String;
   public
@@ -45,6 +49,9 @@ begin
       Memo1.Lines.Add(OpenDialog1.Files[cont]);
     end;
     ShowMessage('Arquivos adicionados!');
+    Button1.Enabled := True;
+    Button4.Enabled := False;
+    Label1.Caption := 'Arquivos adicionados';
   end;
 end;
 
@@ -71,12 +78,64 @@ begin
         else
           ShowMessage('Arquivo: ' + Memo1.Lines[cont] + ' não encontrado');
       end;
-      ShowMessage('Exportado com sucesso!');
+      ShowMessage('Compactado com sucesso!');
       KAZip1.Close;
     end;
   end
   else
     ShowMessage('Para exportar selecione a opção de ADICIONAR.');
+end;
+
+procedure TForm1.Button3Click(Sender: TObject);
+var
+  cont: Integer;
+begin
+  if OpenDialog2.Execute then
+  begin
+    Memo1.Lines.Clear;
+    Memo1.Lines.Add(OpenDialog2.FileName);
+    ShowMessage('Importado com sucesso');
+    Button1.Enabled := False;
+    Button4.Enabled := True;
+    Label1.Caption := 'Arquivos importados';
+  end;
+end;
+
+procedure TForm1.Button4Click(Sender: TObject);
+var
+  compressedFile: TZipForge;
+begin
+  compressedFile := TZipForge.Create(nil);
+  try
+    try
+      with compressedFile do
+      begin
+        compressedFile.FileName := OpenDialog2.FileName;
+        OpenArchive(fmOpenRead);
+        ShowMessage('Selecione o destino para descompactar');
+        if SaveDialog2.Execute then
+        begin
+          BaseDir := SaveDialog2.FileName;
+          ExtractFiles('*.*');
+          CloseArchive();
+          ShowMessage('Arquivos descompactados com sucesso!');
+        end;
+      end;
+    except
+      on E: Exception do
+      begin
+        Writeln('Exception: ', E.Message);
+        Readln;
+      end;
+    end;
+  finally
+    compressedFile.Free;
+  end;
+end;
+
+procedure TForm1.FormDestroy(Sender: TObject);
+begin
+  KAZip1.Free;
 end;
 
 function TForm1.RemoveAcentos(Str: String): String;
@@ -92,29 +151,6 @@ begin
     end;
   end;
   Result := Str;
-end;
-
-procedure TForm1.Button3Click(Sender: TObject);
-var
-  cont: integer;
-begin
-  if OpenDialog2.Execute then
-  begin
-    Memo1.Lines.Clear;
-    KAZip1.Open(OpenDialog2.FileName);
-
-    for cont := 0 to KAZip1.Entries.Count - 1 do
-    begin
-      Memo1.Lines.Add(KAZip1.Entries.Items[cont].FileName);
-    end;
-
-    ShowMessage('Importado com sucesso');
-  end;
-end;
-
-procedure TForm1.FormDestroy(Sender: TObject);
-begin
-  KAZip1.Free;
 end;
 
 end.

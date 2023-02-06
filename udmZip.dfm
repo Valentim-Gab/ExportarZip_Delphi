@@ -1,8 +1,8 @@
 object Form1: TForm1
-  Left = 1961
-  Top = 232
-  Width = 426
-  Height = 242
+  Left = 1840
+  Top = 143
+  Width = 424
+  Height = 284
   Caption = 'Gerenciador de arquivos'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -14,26 +14,40 @@ object Form1: TForm1
   OnDestroy = FormDestroy
   PixelsPerInch = 96
   TextHeight = 13
+  object Label1: TLabel
+    Left = 32
+    Top = 8
+    Width = 329
+    Height = 41
+    Caption = 'Adicione ou importe'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -35
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
   object Memo1: TMemo
     Left = 8
-    Top = 8
+    Top = 56
     Width = 393
-    Height = 145
+    Height = 153
     ScrollBars = ssVertical
     TabOrder = 0
   end
   object Button1: TButton
-    Left = 328
-    Top = 160
+    Left = 88
+    Top = 216
     Width = 75
     Height = 25
-    Caption = 'Exportar'
+    Caption = 'Compactar'
+    Enabled = False
     TabOrder = 1
     OnClick = Button1Click
   end
   object Button2: TButton
     Left = 8
-    Top = 160
+    Top = 216
     Width = 75
     Height = 25
     Caption = 'Adicionar'
@@ -41,13 +55,23 @@ object Form1: TForm1
     OnClick = Button2Click
   end
   object Button3: TButton
-    Left = 248
-    Top = 160
+    Left = 240
+    Top = 216
     Width = 75
     Height = 25
     Caption = 'Importar'
     TabOrder = 3
     OnClick = Button3Click
+  end
+  object Button4: TButton
+    Left = 320
+    Top = 216
+    Width = 83
+    Height = 25
+    Caption = 'Descompactar'
+    Enabled = False
+    TabOrder = 4
+    OnClick = Button4Click
   end
   object KAZip1: TKAZip
     IsZipFile = False
@@ -61,27 +85,31 @@ object Form1: TForm1
     ReadOnly = False
     ApplyAtributes = True
     Active = False
-    Left = 184
-    Top = 160
+    Left = 192
+    Top = 168
   end
   object OpenDialog1: TOpenDialog
     Options = [ofHideReadOnly, ofAllowMultiSelect, ofEnableSizing]
-    Left = 120
-    Top = 160
+    Left = 32
+    Top = 176
   end
   object SaveDialog1: TSaveDialog
     DefaultExt = '*.zip'
-    FileName = 'C:\Users\gabriel.arruda\Desktop\teste2.zip'
     Filter = 'Pasta compactada|*.zip'
     Options = [ofHideReadOnly, ofExtensionDifferent, ofEnableSizing]
-    Left = 152
-    Top = 160
+    Left = 112
+    Top = 176
   end
   object OpenDialog2: TOpenDialog
     DefaultExt = '*.zip'
     Filter = 'Pasta compactada|*.zip'
     Options = [ofHideReadOnly, ofAllowMultiSelect, ofEnableSizing]
-    Left = 216
-    Top = 160
+    Left = 264
+    Top = 176
+  end
+  object SaveDialog2: TSaveDialog
+    Filter = 'Pasta| '
+    Left = 344
+    Top = 176
   end
 end

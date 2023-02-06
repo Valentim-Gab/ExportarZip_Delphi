@@ -11,27 +11,30 @@ File_8=SourceModule,'C:\Program Files (x86)\Borland\Delphi7\LibTerceiros\JvRichE
 File_9=SourceModule,'C:\Program Files (x86)\Borland\Delphi7\LibTerceiros\JvTypes.pas',0,1,195,1,208,0,0
 
 [Modules]
-Module0=C:\Users\gabriel.arruda\Desktop\ExportarZip\udmZip.pas
-Count=1
+Module0=C:\Users\gabriel.arruda\Desktop\Delphi projects\ExportarZip\udmZip.pas
+Module1=C:\Users\gabriel.arruda\Desktop\Delphi projects\ExportarZip\prjZip.dpr
+Count=2
 EditWindowCount=1
 
-[C:\Users\gabriel.arruda\Desktop\ExportarZip\udmZip.pas]
+[C:\Users\gabriel.arruda\Desktop\Delphi projects\ExportarZip\udmZip.pas]
 ModuleType=SourceModule
 FormState=1
+FormOnTop=0
+
+[C:\Users\gabriel.arruda\Desktop\Delphi projects\ExportarZip\prjZip.dpr]
+ModuleType=SourceModule
+FormState=0
 FormOnTop=0
 
 [C:\Program Files (x86)\Borland\Delphi7\Projects\ProjectGroup1.bpg]
 FormState=0
 FormOnTop=0
 
-[C:\Users\gabriel.arruda\Desktop\ExportarZip\prjZip.dpr]
-FormState=0
-FormOnTop=0
-
 [EditWindow0]
-ViewCount=1
-CurrentView=0
+ViewCount=2
+CurrentView=1
 View0=0
+View1=1
 CodeExplorer=CodeExplorer@EditWindow0
 MessageView=MessageView@EditWindow0
 Create=1
@@ -54,10 +57,17 @@ BottomPanelClients=MessageView@EditWindow0
 BottomPanelData=00000400010000000B0000004D657373616765566965770000000000000000000000000000000000FFFFFFFF
 
 [View0]
-Module=C:\Users\gabriel.arruda\Desktop\ExportarZip\udmZip.pas
-CursorX=24
-CursorY=69
-TopLine=58
+Module=C:\Users\gabriel.arruda\Desktop\Delphi projects\ExportarZip\prjZip.dpr
+CursorX=1
+CursorY=1
+TopLine=1
+LeftCol=1
+
+[View1]
+Module=C:\Users\gabriel.arruda\Desktop\Delphi projects\ExportarZip\udmZip.pas
+CursorX=30
+CursorY=68
+TopLine=55
 LeftCol=1
 
 [Watches]
@@ -91,9 +101,9 @@ Count=0
 Create=1
 Visible=1
 State=2
-Left=1353
+Left=2719
 Top=68
-Width=136
+Width=13
 Height=123
 MaxLeft=-1
 MaxTop=-1
@@ -109,11 +119,11 @@ State=0
 Left=0
 Top=0
 Width=305
-Height=37
+Height=545
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=305
-ClientHeight=37
+ClientHeight=545
 TBDockHeight=318
 LRDockWidth=277
 Dockable=1
@@ -164,7 +174,7 @@ LRDockWidth=313
 Dockable=1
 SplitPos=85
 ArrangeBy=Name
-SelectedItem=Name
+SelectedItem=Caption
 ExpandedItems=BsClientData,Frame
 HiddenCategories=
 
@@ -197,11 +207,11 @@ State=0
 Left=0
 Top=0
 Width=305
-Height=37
+Height=545
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=305
-ClientHeight=37
+ClientHeight=545
 TBDockHeight=366
 LRDockWidth=277
 Dockable=1
