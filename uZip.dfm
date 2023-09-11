@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 1840
-  Top = 143
+  Left = 1870
+  Top = 91
   Width = 424
   Height = 284
   Caption = 'Gerenciador de arquivos'

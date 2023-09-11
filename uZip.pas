@@ -1,4 +1,4 @@
-unit udmZip;
+unit uZip;
 
 interface
 
@@ -76,14 +76,14 @@ begin
           KAZip1.AddFile(OpenDialog1.Files[cont], nomeArquivo);
         end
         else
-          ShowMessage('Arquivo: ' + Memo1.Lines[cont] + ' não encontrado');
+          ShowMessage('Arquivo: ' + Memo1.Lines[cont] + ' nï¿½o encontrado');
       end;
       ShowMessage('Compactado com sucesso!');
       KAZip1.Close;
     end;
   end
   else
-    ShowMessage('Para exportar selecione a opção de ADICIONAR.');
+    ShowMessage('Para exportar selecione a opï¿½ï¿½o de ADICIONAR.');
 end;
 
 procedure TForm1.Button3Click(Sender: TObject);
@@ -139,7 +139,7 @@ begin
 end;
 
 function TForm1.RemoveAcentos(Str: String): String;
-const ComAcento = 'àâêôûãõáéíóúçüÀÂÊÔÛÃÕÁÉÍÓÚÇÜ/\';
+const ComAcento = 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/\';
       SemAcento = 'aaeouaoaeioucuAAEOUAOAEIOUCU__';
 var x : Integer;
 begin
