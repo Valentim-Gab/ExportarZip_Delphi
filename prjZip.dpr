@@ -2,7 +2,7 @@ program prjZip;
 
 uses
   Forms,
-  udmZip in 'udmZip.pas' {Form1};
+  uZip in 'uZip.pas' {Form1};
 
 {$R *.res}
 
